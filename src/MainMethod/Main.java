@@ -75,9 +75,8 @@ public class Main {
 		ZooKeeper worker13 = new ZooKeeper("chen", "yinon", "1234579" , 22, "chenos", "12345", "3");
 		ZooKeeper worker14 = new ZooKeeper("ohad", "eilon", "1234580" , 16, "morad", "12345", "4");
 		ZooKeeper worker15 = new ZooKeeper("zigdon", "nor", "1234581" , 44, "zichron", "12345", "1");
-///asdadasddsss
-		///////////asdsadsadsadsad
-		int asad = 0;
+
+		
 		// Veterinarian
 		Veterinarian worker16 = new Veterinarian("sharon", "gidon", "1234582", 55, "sharoni", "12345", "0", "Medicine");
 		Veterinarian worker17 = new Veterinarian("alon", "broidex", "1234583", 21, "alonbalon", "12345", "2", "Medicine");
