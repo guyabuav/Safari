@@ -1,6 +1,5 @@
 package Humans;
 
-import Animals.Animal;
 import ThePark.Park;
 
 public class Ceo extends Veterinarian {
@@ -50,7 +49,7 @@ public class Ceo extends Veterinarian {
 		}
 		else{
 			this.parkImManage.animalsInPark.addFirst(this.parkImManage.animalIdExistsInCollection(animal_Id));
-			System.out.println("Animal added succesfully from collection to our safari!");
+			System.out.println("Animal added succesfully from collection to your Zoo!");
 			this.parkImManage.animalsCollection.remove(this.parkImManage.animalIdExistsInCollection(animal_Id));
 		}
 	} 
@@ -62,7 +61,7 @@ public class Ceo extends Veterinarian {
 		else {
 			this.parkImManage.animalsCollection.addLast(this.parkImManage.animalIdExists(animal_Id));
 			this.parkImManage.animalsInPark.remove(this.parkImManage.animalIdExistsInCollection(animal_Id));
-			System.out.println("Animal removed succesfully from our safari!");
+			System.out.println("Animal removed succesfully from your Zoo!");
 		}
 	} 
 
@@ -81,19 +80,19 @@ public class Ceo extends Veterinarian {
 		}
 		else {
 			this.parkImManage.workersInPark.addFirst(this.parkImManage.workerIdExistsInCollection(worker_Id));
-			System.out.println("Worker added succesfully from collection to our safari!");
+			System.out.println("Worker added succesfully from collection to your Zoo!");
 			this.parkImManage.workersCollection.remove(this.parkImManage.workerIdExistsInCollection(worker_Id));
 		}
 	} 
 
 	public void DeleteWorkerIDFromPark(String worker_Id) {
 		if(this.parkImManage.WorkerIdExists(worker_Id) == null) {
-			System.out.println("This animal not exists in the park");
+			System.out.println("This animal not exists at Zoo");
 		}
 		else {
 			this.parkImManage.workersCollection.addLast(this.parkImManage.WorkerIdExists(worker_Id));
 			this.parkImManage.workersInPark.remove(this.parkImManage.WorkerIdExists(worker_Id));
-			System.out.println("Worker removed succesfully from our safari!");
+			System.out.println("Worker removed succesfully from your Zoo!");
 		}
 	} 
 	//	public void deleteAnimalFromPark(Animal animal) {
