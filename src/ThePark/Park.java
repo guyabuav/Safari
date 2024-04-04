@@ -10,7 +10,7 @@ import Humans.ZooKeeper;
 
 public class Park {
 
-	protected Ceo boss;
+	private Ceo boss;
 	public LinkedList<Animal> animalsInPark;
 	public LinkedList<Employee> workersInPark;
 	public LinkedList<Animal> animalsCollection;
@@ -21,7 +21,7 @@ public class Park {
 	protected int visitors_today;
 	protected Product Ticket;
 
-	
+
 	public Park(Ceo boss, ZooTrain train, SouvenirStore sov_store, FoodTruck food_truck, int visitors_today, Product ticketPrice) {
 		this.boss = boss;
 		this.animalsInPark = new LinkedList<Animal>();

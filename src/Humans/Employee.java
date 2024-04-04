@@ -2,8 +2,8 @@ package Humans;
 
 public abstract class Employee extends Human {
 
-	protected String user;
-	protected String password;
+	private String user;
+	private String password;
 	protected String seniority; // by years
 	protected int salary; // per hour
 	protected int todayWorkingHours;

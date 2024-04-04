@@ -75,9 +75,8 @@ public class Main {
 		ZooKeeper worker13 = new ZooKeeper("chen", "yinon", "1234579" , 22, "chenos", "12345", "3");
 		ZooKeeper worker14 = new ZooKeeper("ohad", "eilon", "1234580" , 16, "morad", "12345", "4");
 		ZooKeeper worker15 = new ZooKeeper("zigdon", "nor", "1234581" , 44, "zichron", "12345", "1");
-///asdadasddsss
-		///////////asdsadsadsadsad
-		int asad = 0;
+
+
 		// Veterinarian
 		Veterinarian worker16 = new Veterinarian("sharon", "gidon", "1234582", 55, "sharoni", "12345", "0", "Medicine");
 		Veterinarian worker17 = new Veterinarian("alon", "broidex", "1234583", 21, "alonbalon", "12345", "2", "Medicine");
@@ -346,12 +345,12 @@ public class Main {
 			case 3:
 				System.out.println("Enter animal_ID to operate animal: ");
 				int animalID = scanner.nextInt();
-				temp.Operate(p.animalIdExists(animalID));
+				temp.Operate(p.animalIdExists(animalID), p);
 				break;
 			case 4:
 				System.out.println("Enter animal_ID to check animal: ");
 				int animalID1 = scanner.nextInt();
-				temp.MedicalCheck(p.animalIdExists(animalID1));
+				temp.MedicalCheck(p.animalIdExists(animalID1), p);
 				break;
 			case 5:
 				System.out.println("Enter ZooKeeper ID to teach: ");

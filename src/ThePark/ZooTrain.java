@@ -7,7 +7,7 @@ public class ZooTrain {
 	private int rides_num;
 	private int rides_remain_today;
 	public boolean is_moving;
-	
+
 
 	// Constructor
 	public ZooTrain(String location, int capacity, int ridesNum, int ridesRemainToday) {
