@@ -24,9 +24,9 @@ public class Main {
 
 		/// New main
 		// Bird
-		Animal bird1 = new Bird("Blue", "parrot", 5);
-		Animal bird2 = new Bird("Charlie", "eagle", 2);
-		Animal bird3 = new Bird("Rio", "parrot", 3);
+		Animal bird1 = new Bird("Blue", "parrot", 5,10,50,50);
+		Animal bird2 = new Bird("Charlie", "eagle", 2,50,10,50);
+		Animal bird3 = new Bird("Rio", "parrot", 3,50,50,10);
 		Animal bird4 = new Bird("Sunny", "parrot", 4);
 		Animal bird5 = new Bird("Rocky", "eagle", 6);
 		Animal bird6 = new Bird("Kiwi", "penguin", 1);
@@ -77,6 +77,7 @@ public class Main {
 		ZooKeeper worker15 = new ZooKeeper("zigdon", "nor", "1234581" , 44, "zichron", "12345", "1");
 
 
+		
 		// Veterinarian
 		Veterinarian worker16 = new Veterinarian("sharon", "gidon", "1234582", 55, "sharoni", "12345", "0", "Medicine");
 		Veterinarian worker17 = new Veterinarian("alon", "broidex", "1234583", 21, "alonbalon", "12345", "2", "Medicine");
@@ -301,7 +302,6 @@ public class Main {
 				System.out.println("\nYou've logged out!");
 				logout = true;
 				return false;
-				//break;
 			case 15:
 				System.out.println("\nExiting the program...");
 				return true;
@@ -348,10 +348,13 @@ public class Main {
 				temp.Operate(p.animalIdExists(animalID), p);
 				break;
 			case 4:
+				System.out.println("Enter id of the responsible zooKeeper: ");
+				scanner.nextLine();
+				String zooKeeperID = scanner.nextLine();
 				System.out.println("Enter animal_ID to check animal: ");
 				int animalID1 = scanner.nextInt();
-				temp.MedicalCheck(p.animalIdExists(animalID1), p);
-				break;
+				temp.MedicalCheck((ZooKeeper) p.WorkerIdExists(zooKeeperID),p.animalIdExists(animalID1), p);
+				break;				
 			case 5:
 				System.out.println("Enter ZooKeeper ID to teach: ");
 				scanner.nextLine();
@@ -364,9 +367,11 @@ public class Main {
 				System.out.println("Park employeers list: \n ");
 				System.out.println(p.getWorkersInPark());
 				break;
+				
 			case 7:
 				System.out.println("\nYou've logged out!");
-				break;
+				logout = true;
+				return false;				
 			case 8:
 				System.out.println("\nExiting the program...");
 				return true;
@@ -385,15 +390,17 @@ public class Main {
 
 		do {
 			System.out.println("\nHey Zookeeper, What do you want to do today?\n");
-			System.out.println("1. Show your details");
-			System.out.println("2. Show your animals");
+			System.out.println("1. Show my details");
+			System.out.println("2. Show my animals");
 			System.out.println("3. Clean cage");
 			System.out.println("4. Preforme a show with animal");
 			System.out.println("5. Pet animal");
 			System.out.println("6. Show me the park animals list");
 			System.out.println("7. Add pet to my responsibillity");
-			System.out.println("8. Log out");
-			System.out.println("9. Exit");
+			System.out.println("8. Show my tasks");
+			System.out.println("9. Mark task as done");
+			System.out.println("10. Log out");
+			System.out.println("11. Exit");
 			System.out.print("Enter the number of the option: ");
 			choice = scanner.nextInt();
 			switch (choice) {
@@ -422,10 +429,19 @@ public class Main {
 				temp.addAnimalByID(animalID, p);
 				break;
 			case 8:
+				System.out.println("This is your task :\n");
+				System.out.println(temp.getTasks());
+				break;
+			case 9:
+				System.out.println("Choose task that have been done");
+				int tid = scanner.nextInt();
+				temp.markTaskAsDone(tid);
+				break;
+			case 10:
 				System.out.println("\nYou've logged out!");
 				logout = true;
 				break;
-			case 9:
+			case 11:
 				System.out.println("\nExiting the program...");
 				return true;
 			default:

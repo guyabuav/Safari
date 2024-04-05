@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import Animals.Animal;
 import ThePark.Park;
+import ThePark.Task;
 
 
 public class Veterinarian extends Employee {
@@ -47,22 +48,27 @@ public class Veterinarian extends Employee {
 		else System.out.println("There is no such animal");
 	}
 
-	public void MedicalCheck(Animal an, Park park) {
-		if(park.animalExists(an)) {
+	public void MedicalCheck(ZooKeeper k, Animal an, Park park) {
+		if(park.animalExists(an) && park.workerExists(k)) {
 			if (an.getHealth() < 50) {
-				System.out.println("The animal needs a medical treatment!");
+				//insert task to queue
+				System.out.println("Animal health need to improve! inserting task to " +k.firstName + "\n");
+				Task t = new Task("Raise Health", "The animal needs a cage clean!", an,this);
+				k.zooKeeperTasks.add(t);
 			}
 			else System.out.println("Animal health is good");
 			if (an.getHunger() < 50) {
-				System.out.println("The animals needs food!");
+				System.out.println("This animal is hungry! inserting task to " +k.firstName + "\n");
+				Task t = new Task("Pet Animal", "The animal needs a meal!", an,this);
+				k.zooKeeperTasks.add(t);
 			}
 			else System.out.println("Animal Hunger is good");
 			if (an.getHappiness() < 50) {
-				System.out.println("The animals needs a show");
-			}
-			else System.out.println("Animal Happines is good");
+				System.out.println("This animal is sad! inserting task to " +k.firstName + "\n");
+				Task t = new Task("Cheer animal", "The animal needs a show!", an,this);
+				k.zooKeeperTasks.add(t);			}
 		}
-		else System.out.println("There is no such animal");
+		else System.out.println("There is no such animal or ZooKeeper");
 	}
 
 	public void TeachZooKeeper(ZooKeeper k, Animal an, Park p) {
