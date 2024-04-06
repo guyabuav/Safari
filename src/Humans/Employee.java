@@ -4,12 +4,12 @@ public abstract class Employee extends Human {
 
 	private String user;
 	private String password;
-	protected int seniority; // by years
+	protected String seniority; // by years
 	protected int salary; // per hour
 	protected int todayWorkingHours;
 
 	public Employee(String firstName, String lastName, String id, int age, String user, String password,
-			int seniority) {
+			String seniority) {
 		super(firstName, lastName, id, age);
 		this.user = user;
 		this.password = password;
@@ -45,11 +45,11 @@ public abstract class Employee extends Human {
 		this.password = password;
 	}
 
-	public int getSeniority() {
+	public String getSeniority() {
 		return seniority;
 	}
 
-	public void setSeniority(int seniority) {
+	public void setSeniority(String seniority) {
 		this.seniority = seniority;
 	}
 

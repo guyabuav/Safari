@@ -22,7 +22,7 @@ public class ZooKeeper extends Employee {
 		}
 	}
 
-	public ZooKeeper(String firstName, String lastName, String id, int age, String user, String password, int seniority) {
+	public ZooKeeper(String firstName, String lastName, String id, int age, String user, String password, String seniority) {
 		super(firstName, lastName, id, age, user, password, seniority);
 		this.animalsToCare = new LinkedList<Animal>();
 		this.zooKeeperTasks = new Stack<Task>();

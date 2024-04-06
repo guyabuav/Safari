@@ -10,7 +10,7 @@ import ThePark.Task;
 public class Veterinarian extends Employee {
 	protected String expertise;
 
-	public Veterinarian(String firstName, String lastName, String id, int age, String user, String password, int seniority, String expertise) {
+	public Veterinarian(String firstName, String lastName, String id, int age, String user, String password, String seniority, String expertise) {
 		super(firstName, lastName, id, age, user, password, seniority);
 		this.expertise = expertise;
 	}
