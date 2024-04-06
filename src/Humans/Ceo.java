@@ -7,7 +7,7 @@ public class Ceo extends Veterinarian {
 	private boolean have_background;
 	private Park parkImManage;
 
-	public Ceo(String firstName, String lastName, String id, int age, String user, String password, String seniority, String expertise,  boolean background) {
+	public Ceo(String firstName, String lastName, String id, int age, String user, String password, int seniority, String expertise,  boolean background) {
 		super(firstName, lastName, id, age, user, password, seniority, expertise);
 		this.have_background = background;
 		this.parkImManage = null;
@@ -67,22 +67,18 @@ public class Ceo extends Veterinarian {
 	} 
 
 
-
-
-
-
 	// Add worker from the collection to the park & deleting animal from the collection
 	public void addWorkertoPark(String worker_Id) {
 		if(this.parkImManage.WorkerIdExists(worker_Id) != null) {
 			System.out.println("This worker already exists in the park");
 		}
-		else if(this.parkImManage.workerIdExistsInCollection(worker_Id) == null) {
+		else if((this.parkImManage.workerIdExistsInCollection(worker_Id))== false) {
 			System.out.println("This worker is not exists in collection");
 		}
 		else {
-			this.parkImManage.workersInPark.addFirst(this.parkImManage.workerIdExistsInCollection(worker_Id));
+			this.parkImManage.workersInPark.addLast(((Employee) this.parkImManage.workerFinder(worker_Id)));
 			System.out.println("Worker added succesfully from collection to our safari!");
-			this.parkImManage.workersCollection.remove(this.parkImManage.workerIdExistsInCollection(worker_Id));
+			//this.parkImManage.workersCollection.remove(this.parkImManage.workerIdExistsInCollection(worker_Id));
 		}
 	} 
 
@@ -91,18 +87,11 @@ public class Ceo extends Veterinarian {
 			System.out.println("This animal not exists in the park");
 		}
 		else {
-			this.parkImManage.workersCollection.addLast(this.parkImManage.WorkerIdExists(worker_Id));
+			this.parkImManage.workersCollection.insert(worker_Id);
 			this.parkImManage.workersInPark.remove(this.parkImManage.WorkerIdExists(worker_Id));
 			System.out.println("Worker removed succesfully from our safari!");
 		}
 	} 
-	//	public void deleteAnimalFromPark(Animal animal) {
-	//		if (parkImManage.animalsInPark.remove(animal)) {
-	//			System.out.println("Animal removed successfully");
-	//		} else {
-	//			System.out.println("Animal not found in the park");
-	//		}
-	//	}
 
 	public void addWorker(Employee worker) {
 		if(this.parkImManage.workerExists(worker)) {
