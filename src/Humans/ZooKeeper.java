@@ -1,9 +1,5 @@
 package Humans;
-import java.util.ArrayDeque;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 import Animals.Animal;
 import ThePark.Park;
@@ -63,6 +59,7 @@ public class ZooKeeper extends Employee {
 		else {
 			System.out.println("There is no such animal in ur list");
 		}
+
 	}
 
 
@@ -78,6 +75,7 @@ public class ZooKeeper extends Employee {
 		else {
 			System.out.println("There is no such animal in ur list");
 		}
+
 	}
 
 	public void Pet() { // WORKING
@@ -95,6 +93,12 @@ public class ZooKeeper extends Employee {
 
 	}
 
+
+
+
+
+
+
 	public Animal animalIDexists(int animalID) {
 		for(Animal animal : this.animalsToCare) {
 			if(animal.getID() == animalID) {
@@ -103,6 +107,8 @@ public class ZooKeeper extends Employee {
 		}
 		return null;
 	}
+
+
 
 	private Animal chooseAnimal(String chosen) { // WORKING
 		if (this.animalsToCare.isEmpty()) {
@@ -118,6 +124,8 @@ public class ZooKeeper extends Employee {
 		return null;
 	}
 
+
+
 	public void addAnimal(Animal toAdd, Park park) { //WORKING!!!
 		if(park.animalExists(toAdd)) {
 			this.animalsToCare.addFirst(toAdd);
@@ -127,6 +135,12 @@ public class ZooKeeper extends Employee {
 			System.out.println("This animal not exists in park");
 		}
 	}
+
+	//	if the animal in my list - return it
+	//			
+	//	if the animal is not in the park list and not in my list - return it
+	//			
+	//	if the animal is in the park list but not im my list - return it
 
 	public void addAnimalByID(int animalID, Park park) { //WORKING!!!
 		if (this.animalsToCare.contains(park.animalIdExists(animalID))) {
