@@ -1,42 +1,41 @@
 package ThePark;
 
-import java.util.*;
+import java.util.LinkedList;
+
 import Animals.Animal;
 import Humans.Ceo;
 import Humans.Employee;
-import MainMethod.BST;
-import MainMethod.EmployeeComparator;
+import Humans.ZooKeeper;
 
 
 public class Park {
 
-	protected Ceo boss;
+	private Ceo boss;
 	public LinkedList<Animal> animalsInPark;
 	public LinkedList<Employee> workersInPark;
 	public LinkedList<Animal> animalsCollection;
-	public BST workersCollection;
-	public Queue<ZooTrain> rides;
+	public LinkedList<Employee> workersCollection;
+	protected ZooTrain train;
 	protected SouvenirStore sov_store;
 	protected FoodTruck food_truck;
 	protected int visitors_today;
 	protected Product Ticket;
 
-	//Constructors	
+
 	public Park(Ceo boss, ZooTrain train, SouvenirStore sov_store, FoodTruck food_truck, int visitors_today, Product ticketPrice) {
 		this.boss = boss;
 		this.animalsInPark = new LinkedList<Animal>();
 		this.workersInPark = new LinkedList<Employee>();
 		this.animalsCollection = new LinkedList<Animal>();
-		EmployeeComparator comp = new EmployeeComparator();
-		this.workersCollection = new BST(comp);
-		this.rides = new LinkedList<ZooTrain>();
+		this.workersCollection = new LinkedList<Employee>();
+		this.train = train;
 		this.sov_store = sov_store;
 		this.food_truck = food_truck;
 		this.visitors_today = visitors_today;
 		this.Ticket = ticketPrice;
 	}
 
-	//Class method
+
 	public boolean animalExists(Animal an) {
 		return(this.animalsInPark.contains(an));
 	}	
@@ -46,9 +45,12 @@ public class Park {
 		for (Animal animal : this.animalsInPark) {
 			if (animal.getID() == animalID) {
 				foundAnimal = animal;
-				break;
+				break; // Found the animal, no need to continue searching
 			}
 		}
+		//	    if (foundAnimal == null) {
+		//	        System.out.println("There is no such Animal in the park");
+		//	    }
 		return foundAnimal;
 	}
 
@@ -61,12 +63,13 @@ public class Park {
 		return null;
 	}
 
-	public boolean workerIdExistsInCollection(String workerID) {
-		return (this.workersCollection.findByID(workerID) != null);
-	}
-	
-	public Object workerFinder(String workerID) {
-		return this.workersCollection.findDataByID(workerID);
+	public Employee workerIdExistsInCollection(String workerID) {
+		for(Employee employee : this.workersCollection) {
+			if(employee.getId().equals(workerID))
+				return employee;
+		}
+		//		System.out.println("There is no such Worker in the Collection");
+		return null;
 	}
 
 	public Employee WorkerIdExists(String zooKeeperID) {
@@ -81,21 +84,8 @@ public class Park {
 	public boolean workerExists(Employee em) {
 		return(this.workersInPark.contains(em));
 	}
-	
-	public void addRide(ZooTrain ride) {//Add ride
-		this.rides.add(ride);
-	}
-	
-	public void startRide() {//Start a ride
-		for(ZooTrain ride : this.rides){
-			if(ride.getTripDone() == false){
-				ride.setTripDone(true);
-				System.out.println("Ride number "+ride.getRideNum()+" begins its journey on the"+ride.getRouteType()+" route");
-				}
-			}
-	}
 
-	//Getters Setters
+	// Getters and Setters
 	public Ceo getBoss() {
 		return boss;
 	}
@@ -121,13 +111,13 @@ public class Park {
 	}
 
 
-	/*public TreeSet<Employee> getWorkersCollection() {
+	public LinkedList<Employee> getWorkersCollection() {
 		return this.workersCollection;
-	}*/
+	}
 
-	/*public void setWorkersCollection(TreeSet<Employee> WorkersCollection) {
+	public void setWorkersCollection(LinkedList<Employee> WorkersCollection) {
 		this.workersCollection = WorkersCollection;
-	}*/
+	}
 
 	public LinkedList<Employee> getWorkersInPark() {
 		return workersInPark;
@@ -135,6 +125,14 @@ public class Park {
 
 	public void setWorkersInPark(LinkedList<Employee> workersInPark) {
 		this.workersInPark = workersInPark;
+	}
+
+	public ZooTrain getTrain() {
+		return train;
+	}
+
+	public void setTrain(ZooTrain train) {
+		this.train = train;
 	}
 
 	public SouvenirStore getSov_store() {
@@ -169,13 +167,18 @@ public class Park {
 		this.Ticket = ticketPrice;
 	}
 
-	//Print method
 	public String toString() {
-		return ("\nPark Details:\n-------------\n"+"\nBoss:\n-----\n"+boss.getFirstName() + boss.getLastName()+
-				"\n\nAnimals in Park:\n----------------\n "+animalsInPark+"\n\nWorkers in Park:\n----------------\n"+
-				workersInPark+"\n\nZoo Train Rides: \n----------------\n"+rides+"\n\nSouvenir Store: \n---------------\n"+
-				sov_store+"\nnFood Truck: \n-----------\n"+food_truck+"\n\nVisitors Today: \n---------------\n"+
-				visitors_today+"\n\nTicket Price: \n-------------\n"+Ticket+"\n");
+		StringBuilder sb = new StringBuilder();
+		sb.append("\nPark Details:\n");
+		sb.append("Boss: ").append(boss.getFirstName() + boss.getLastName()).append("\n");
+		sb.append("Animals in Park:\n ").append(animalsInPark).append("\n");
+		sb.append("Workers in Park:\n").append(workersInPark).append("\n");
+		sb.append("Zoo Train: ").append(train).append("\n");
+		sb.append("Souvenir Store: ").append(sov_store).append("\n");
+		sb.append("Food Truck: ").append(food_truck).append("\n");
+		sb.append("Visitors Today: ").append(visitors_today).append("\n");
+		sb.append("Ticket Price: ").append(Ticket).append("\n");
+		return sb.toString();
 	}
 
 

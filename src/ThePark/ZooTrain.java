@@ -2,73 +2,53 @@ package ThePark;
 
 public class ZooTrain {
 
-	private String route_type;
-	private int passengers;
-	private int ride_num;
-	private static int passengers_max = 15;
-	private boolean trip_done;
-	
+	private String location;
+	private int capacity;
+	private int rides_num;
+	private int rides_remain_today;
+	public boolean is_moving;
 
-	// Constructors
-	public ZooTrain(String route_type, int passengers) {
-		this.route_type = route_type;
-		if (passengers > passengers_max)
-			this.passengers = passengers;
-		else this.passengers = passengers;
-		this.ride_num = (int)Math.random();
-		this.trip_done = false;
-	}
-	
-	public ZooTrain(ZooTrain tocpy) {
-		this.route_type = tocpy.route_type;
-		this.passengers = tocpy.passengers;
-		this.ride_num = tocpy.ride_num;
-		this.trip_done = tocpy.trip_done;
+
+	// Constructor
+	public ZooTrain(String location, int capacity, int ridesNum, int ridesRemainToday) {
+		this.location = location;
+		this.capacity = capacity;
+		this.rides_num = ridesNum;
+		this.rides_remain_today = ridesRemainToday;
 	}
 
-	//Getters Setters
-	public String getRouteType() {
-		return this.route_type;
+	public String getLocation() {
+		return location;
 	}
-	
-	public void setRouteType(String route) {
-		route_type = route; 
+	public void setLocation(String location) {
+		this.location = location;
 	}
-	
-	public int getPassengers() {
-		return this.passengers;
+	public int getCapacity() {
+		return capacity;
 	}
-	
-	public void setPassengers(int passengers) {
-		this.passengers = passengers;
-		if (passengers > 15) {
-			System.out.println("The train can contain 15 people maximum, only the first 15 people gets a ticket..");
-			this.passengers = 15;
-		}
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
 	}
-	
-	public int getRideNum() {
-		return this.ride_num;
+	public int getRides_num() {
+		return rides_num;
 	}
-	
-	public void setRideNum(int ridenum) {
-		ride_num = ridenum;
+	public void setRides_num(int rides_num) {
+		this.rides_num = rides_num;
 	}
-	
-	public boolean getTripDone() {
-		return trip_done;
+	public int getRides_remain_today() {
+		return rides_remain_today;
 	}
-	
-	public void setTripDone(boolean state) {
-		trip_done = state;
+	public void setRides_remain_today(int rides_remain_today) {
+		this.rides_remain_today = rides_remain_today;
 	}
-			
-	
-	
-	//Print method
+
 	public String toString() {
-		return "Route type = "+route_type+"\nNumber of passengers = "+passengers+"\nRide number = "
-				+ride_num+"\nTrip has been done = " + trip_done+'}';
+		return "ZooTrain{" +
+				"location='" + location + '\'' +
+				", capacity=" + capacity +
+				", rides_num=" + rides_num +
+				", rides_remain_today=" + rides_remain_today +
+				'}';
 	}
 
 }
