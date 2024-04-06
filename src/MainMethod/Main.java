@@ -60,36 +60,36 @@ public class Main {
 		Animal reptile10 = new Reptile("Fang", "snake", 4);
 
 		// ZooKeeper
-		ZooKeeper worker1 = new ZooKeeper("yuval", "levy", "1234567" , 30, "yuvalp", "12345", "0");
-		ZooKeeper worker2 = new ZooKeeper("matan", "semo", "1234568" , 16, "matanos", "12345", "1");
-		ZooKeeper worker3 = new ZooKeeper("rami", "navon", "1234569" , 48, "ramilan", "12345", "6");
-		ZooKeeper worker4 = new ZooKeeper("dan", "gil", "1234570" , 24, "danidin", "1234567", "5");
-		ZooKeeper worker5 = new ZooKeeper("alon", "shir", "1234571" , 70, "alonir", "12345", "2");
-		ZooKeeper worker6 = new ZooKeeper("yoni", "nir", "1234572" , 22, "yonion", "12345", "1");
-		ZooKeeper worker7 = new ZooKeeper("happy", "eiion", "1234573" , 43, "happo", "12345", "5");
-		ZooKeeper worker8 = new ZooKeeper("dor", "alon", "1234574" , 55, "doridor", "12345", "7");
-		ZooKeeper worker9 = new ZooKeeper("shoval", "sharon", "1234575" , 15, "shovalon", "12345", "2");
-		ZooKeeper worker10 = new ZooKeeper("ofir", "meyron", "1234576" , 53, "oferez", "12345", "10");
-		ZooKeeper worker11 = new ZooKeeper("tomer", "shannon", "1234577" , 32, "tomerchik", "12345", "2");
-		ZooKeeper worker12 = new ZooKeeper("ben", "ofir", "1234578" , 29, "benon", "12345", "1");
-		ZooKeeper worker13 = new ZooKeeper("chen", "yinon", "1234579" , 22, "chenos", "12345", "3");
-		ZooKeeper worker14 = new ZooKeeper("ohad", "eilon", "1234580" , 16, "morad", "12345", "4");
-		ZooKeeper worker15 = new ZooKeeper("zigdon", "nor", "1234581" , 44, "zichron", "12345", "1");
+		ZooKeeper worker1 = new ZooKeeper("yuval", "levy", "1234567" , 30, "yuvalp", "12345", 0);
+		ZooKeeper worker2 = new ZooKeeper("matan", "semo", "1234568" , 16, "matanos", "12345", 1);
+		ZooKeeper worker3 = new ZooKeeper("rami", "navon", "1234569" , 48, "ramilan", "12345", 6);
+		ZooKeeper worker4 = new ZooKeeper("dan", "gil", "1234570" , 24, "danidin", "1234567", 5);
+		ZooKeeper worker5 = new ZooKeeper("alon", "shir", "1234571" , 70, "alonir", "12345", 2);
+		ZooKeeper worker6 = new ZooKeeper("yoni", "nir", "1234572" , 22, "yonion", "12345", 1);
+		ZooKeeper worker7 = new ZooKeeper("happy", "eiion", "1234573" , 43, "happo", "12345", 5);
+		ZooKeeper worker8 = new ZooKeeper("dor", "alon", "1234574" , 55, "doridor", "12345", 7);
+		ZooKeeper worker9 = new ZooKeeper("shoval", "sharon", "1234575" , 15, "shovalon", "12345", 2);
+		ZooKeeper worker10 = new ZooKeeper("ofir", "meyron", "1234576" , 53, "oferez", "12345", 10);
+		ZooKeeper worker11 = new ZooKeeper("tomer", "shannon", "1234577" , 32, "tomerchik", "12345", 2);
+		ZooKeeper worker12 = new ZooKeeper("ben", "ofir", "1234578" , 29, "benon", "12345", 1);
+		ZooKeeper worker13 = new ZooKeeper("chen", "yinon", "1234579" , 22, "chenos", "12345", 3);
+		ZooKeeper worker14 = new ZooKeeper("ohad", "eilon", "1234580" , 16, "morad", "12345", 4);
+		ZooKeeper worker15 = new ZooKeeper("zigdon", "nor", "1234581" , 44, "zichron", "12345", 1);
 
 
 		
 		// Veterinarian
-		Veterinarian worker16 = new Veterinarian("sharon", "gidon", "1234582", 55, "sharoni", "12345", "0", "Medicine");
-		Veterinarian worker17 = new Veterinarian("alon", "broidex", "1234583", 21, "alonbalon", "12345", "2", "Medicine");
-		Veterinarian worker18 = new Veterinarian("meydad", "mor", "1234584", 51, "hidad", "12345", "1", "Medicine");
-		Veterinarian worker19 = new Veterinarian("mori", "sason", "1234585", 23, "moron", "12345", "1", "Medicine");
-		Veterinarian worker20 = new Veterinarian("eitan", "gita", "1234586", 52, "eitanos", "12345", "1", "Medicine");
-		Veterinarian worker21 = new Veterinarian("tamir", "po", "1234587", 66, "shamir", "12345", "0", "Medicine");
-		Veterinarian worker22 = new Veterinarian("son", "sin", "1234588", 33, "sinson", "12345", "4", "Medicine");
+		Veterinarian worker16 = new Veterinarian("sharon", "gidon", "1234582", 55, "sharoni", "12345", 0, "Medicine");
+		Veterinarian worker17 = new Veterinarian("alon", "broidex", "1234583", 21, "alonbalon", "12345", 2, "Medicine");
+		Veterinarian worker18 = new Veterinarian("meydad", "mor", "1234584", 51, "hidad", "12345", 1, "Medicine");
+		Veterinarian worker19 = new Veterinarian("mori", "sason", "1234585", 23, "moron", "12345", 1, "Medicine");
+		Veterinarian worker20 = new Veterinarian("eitan", "gita", "1234586", 52, "eitanos", "12345", 1, "Medicine");
+		Veterinarian worker21 = new Veterinarian("tamir", "po", "1234587", 66, "shamir", "12345", 0, "Medicine");
+		Veterinarian worker22 = new Veterinarian("son", "sin", "1234588", 33, "sinson", "12345", 4, "Medicine");
 
 
 		// CEO
-		Ceo worker23 = new Ceo("yossi", "dvir", "1234589", 44, "yossison", "123456", "11", "ALL", true);
+		Ceo worker23 = new Ceo("yossi", "dvir", "1234589", 44, "yossison", "123456", 11, "ALL", true);
 
 		// Park
 

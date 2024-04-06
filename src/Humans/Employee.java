@@ -1,16 +1,13 @@
 package Humans;
 
-import java.util.*;
-
 public abstract class Employee extends Human {
 
-	protected String user;
-	protected String password;
+	private String user;
+	private String password;
 	protected int seniority; // by years
 	protected int salary; // per hour
 	protected int todayWorkingHours;
 
-	//Constructors
 	public Employee(String firstName, String lastName, String id, int age, String user, String password,
 			int seniority) {
 		super(firstName, lastName, id, age);
@@ -21,6 +18,7 @@ public abstract class Employee extends Human {
 		this.todayWorkingHours = 0;
 	}
 
+	// Copy constructor
 	public Employee(Employee other) {
 		super(other.getFirstName(), other.getLastName(), other.getId(), other.getAge());
 		this.user = other.getUser();
@@ -30,11 +28,6 @@ public abstract class Employee extends Human {
 		this.todayWorkingHours = other.getTodayWorkingHours();
 	}
 
-	  public int compareTo(Employee other) {
-	        // Implement comparison logic based on the integer value
-	        return Integer.compare(this.getSeniority(), other.getSeniority());
-	    }
-	
 	// Getters and setters
 	public String getUser() {
 		return user;
