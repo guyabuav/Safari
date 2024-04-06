@@ -4,7 +4,7 @@ import ThePark.Park;
 
 public class Ceo extends Veterinarian {
 	private boolean have_background;
-	private Park parkImManage;
+	protected Park parkImManage;
 
 	public Ceo(String firstName, String lastName, String id, int age, String user, String password, int seniority, String expertise,  boolean background) {
 		super(firstName, lastName, id, age, user, password, seniority, expertise);
@@ -126,8 +126,8 @@ public class Ceo extends Veterinarian {
 		sb.append("Last Name: ").append(lastName).append("\n");
 		sb.append("ID: ").append(id).append("\n");
 		sb.append("Age: ").append(age).append("\n");
-		sb.append("User: ").append(this.getUser()).append("\n");
-		sb.append("Password: ").append(this.getPassword()).append("\n");
+		sb.append("User: ").append(user).append("\n");
+		sb.append("Password: ").append(password).append("\n");
 		sb.append("Seniority: ").append(seniority).append("\n");
 		sb.append("Salary: ").append(salary).append("\n");
 		sb.append("Today's Working Hours: ").append(todayWorkingHours).append("\n");

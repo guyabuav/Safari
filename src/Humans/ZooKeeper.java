@@ -1,18 +1,13 @@
 package Humans;
-import java.util.ArrayDeque;
 import java.util.LinkedList;
-import java.util.Queue;
+
 import java.util.Scanner;
-import java.util.Stack;
 
 import Animals.Animal;
 import ThePark.Park;
-import ThePark.Task;
-
-//Queue<Integer> Q = new ArrayDeque<>();
 
 public class ZooKeeper extends Employee {
-	protected Stack<Task> zooKeeperTasks;
+
 	protected LinkedList<Animal> animalsToCare;
 
 	public void printAnimals() { //WORKING!!!
@@ -22,33 +17,9 @@ public class ZooKeeper extends Employee {
 		}
 	}
 
-	public ZooKeeper(String firstName, String lastName, String id, int age, String user, String password, String seniority) {
+	public ZooKeeper(String firstName, String lastName, String id, int age, String user, String password, int seniority) {
 		super(firstName, lastName, id, age, user, password, seniority);
 		this.animalsToCare = new LinkedList<Animal>();
-		this.zooKeeperTasks = new Stack<Task>();
-	}
-
-	public Stack<Task> getTasks() {
-		return this.zooKeeperTasks;
-	}
-
-	public void setTasks(Stack<Task> tasks) {
-		this.zooKeeperTasks = tasks;
-	}
-
-	public void markTaskAsDone(int taskID) {
-		boolean found = false;
-		for(Task task : this.zooKeeperTasks) {
-			if(task.getTask_id()== taskID) {
-				this.zooKeeperTasks.remove(task);
-				System.out.println("Task number " + taskID + " done and removed successfully!\n");
-				found = true;
-				break; // Once task is found and removed, exit the loop
-			}
-		}
-		if (!found) {
-			System.out.println("Error: Task number " + taskID + " not found!\n");
-		}
 	}
 
 	public void Clean() { // WORKING
@@ -63,6 +34,7 @@ public class ZooKeeper extends Employee {
 		else {
 			System.out.println("There is no such animal in ur list");
 		}
+
 	}
 
 
@@ -78,6 +50,7 @@ public class ZooKeeper extends Employee {
 		else {
 			System.out.println("There is no such animal in ur list");
 		}
+
 	}
 
 	public void Pet() { // WORKING
@@ -95,6 +68,12 @@ public class ZooKeeper extends Employee {
 
 	}
 
+
+
+
+
+
+
 	public Animal animalIDexists(int animalID) {
 		for(Animal animal : this.animalsToCare) {
 			if(animal.getID() == animalID) {
@@ -103,6 +82,8 @@ public class ZooKeeper extends Employee {
 		}
 		return null;
 	}
+
+
 
 	private Animal chooseAnimal(String chosen) { // WORKING
 		if (this.animalsToCare.isEmpty()) {
@@ -118,6 +99,8 @@ public class ZooKeeper extends Employee {
 		return null;
 	}
 
+
+
 	public void addAnimal(Animal toAdd, Park park) { //WORKING!!!
 		if(park.animalExists(toAdd)) {
 			this.animalsToCare.addFirst(toAdd);
@@ -127,6 +110,12 @@ public class ZooKeeper extends Employee {
 			System.out.println("This animal not exists in park");
 		}
 	}
+
+	//	if the animal in my list - return it
+	//			
+	//	if the animal is not in the park list and not in my list - return it
+	//			
+	//	if the animal is in the park list but not im my list - return it
 
 	public void addAnimalByID(int animalID, Park park) { //WORKING!!!
 		if (this.animalsToCare.contains(park.animalIdExists(animalID))) {
@@ -140,7 +129,6 @@ public class ZooKeeper extends Employee {
 			System.out.println("This animal not exists in park animal list");
 		}
 	}
-
 
 	public String toString() { //// WORKING!
 		StringBuilder sb = new StringBuilder("ZooKeeper\n");
