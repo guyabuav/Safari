@@ -10,7 +10,7 @@ import MainMethod.EmployeeComparator;
 
 public class Park {
 
-	protected Ceo boss;
+	private Ceo boss;
 	public LinkedList<Animal> animalsInPark;
 	public LinkedList<Employee> workersInPark;
 	public LinkedList<Animal> animalsCollection;
