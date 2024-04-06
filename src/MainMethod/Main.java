@@ -16,10 +16,13 @@ import Humans.Human;
 import Humans.Veterinarian;
 import Humans.Ceo;
 import Humans.Employee;
+
 // visitors - useing stores, trains...
 public class Main {
-
 	public static void main(String[] args) {
+		final String ANSI_RESET = "\u001B[0m";
+		final String ANSI_BOLD = "\u001B[1m";
+		final String ANSI_RED = "\u001B[31m";
 
 		// Bird
 		Animal bird1 = new Bird("Blue", "parrot", 5);
@@ -40,31 +43,23 @@ public class Main {
 		Animal reptile4 = new Reptile("Rex", "crocodile", 12);
 
 		// ZooKeeper
-		ZooKeeper worker1 = new ZooKeeper("yuval", "levy", "1234567" , 30, "yuvalp", "12345", "0");
-		ZooKeeper worker2 = new ZooKeeper("matan", "semo", "1234568" , 16, "matanos", "12345", "1");
-		ZooKeeper worker3 = new ZooKeeper("rami", "navon", "1234569" , 48, "ramilan", "12345", "6");
-		ZooKeeper worker4 = new ZooKeeper("dan", "gil", "1234570" , 24, "danidin", "1234567", "5");
-		ZooKeeper worker5 = new ZooKeeper("alon", "shir", "1234571" , 70, "alonir", "12345", "2");
-		ZooKeeper worker6 = new ZooKeeper("yoni", "nir", "1234572" , 22, "yonion", "12345", "1");
-		ZooKeeper worker7 = new ZooKeeper("happy", "eiion", "1234573" , 43, "happo", "12345", "5");
+		ZooKeeper worker1 = new ZooKeeper("yuval", "levy", "1234567" , 30, "yuvalp", "12345", 10);
+		ZooKeeper worker2 = new ZooKeeper("matan", "semo", "1234568" , 16, "matanos", "12345", 1);
+		ZooKeeper worker3 = new ZooKeeper("rami", "navon", "1234569" , 48, "ramilan", "12345", 6);
 
 		
 		// Veterinarian
-		Veterinarian worker8 = new Veterinarian("sharon", "gidon", "1234582", 55, "sharoni", "12345", "0", "Medicine");
-		Veterinarian worker9 = new Veterinarian("alon", "broidex", "1234583", 21, "alonbalon", "12345", "2", "Medicine");
-		Veterinarian worker10 = new Veterinarian("meydad", "mor", "1234584", 51, "hidad", "12345", "1", "Medicine");
-		Veterinarian worker11 = new Veterinarian("mori", "sason", "1234585", 23, "moron", "12345", "1", "Medicine");
-		Veterinarian worker12 = new Veterinarian("eitan", "gita", "1234586", 52, "eitanos", "12345", "1", "Medicine");
-		Veterinarian worker13 = new Veterinarian("tamir", "po", "1234587", 66, "shamir", "12345", "0", "Medicine");
-		Veterinarian worker14 = new Veterinarian("son", "sin", "1234588", 33, "sinson", "12345", "4", "Medicine");
+		Veterinarian worker8 = new Veterinarian("sharon", "gidon", "1234582", 55, "sharoni", "12345", 4, "Medicine");
+		Veterinarian worker9 = new Veterinarian("alon", "broidex", "1234583", 21, "alonbalon", "12345", 12, "Medicine");
+		Veterinarian worker10 = new Veterinarian("meydad", "mor", "1234584", 51, "hidad", "12345", 16, "Medicine");
 
 
 		// CEO
-		Ceo worker23 = new Ceo("yossi", "dvir", "1234589", 44, "yossison", "123456", "11", "ALL", true);
+		Ceo worker23 = new Ceo("yossi", "dvir", "1234589", 44, "yossison", "123456", 11, "ALL", true);
 
 		// Park
 
-		ZooTrain train = new ZooTrain("Entry", 30, 0, 50);
+		ZooTrain train = new ZooTrain("Long", 20);
 		Product key_chain = new Product(5, 100);
 		Product zoo_photo = new Product(10,100);
 		Product snack = new Product(5,200);
@@ -79,6 +74,7 @@ public class Main {
 		Product Ticket = new Product(75,1000);
 		Park p = new Park(worker23, train, svStore, foodTruck, 0, Ticket);
 		worker23.SetparkImManage(p);
+		p.addRide(train);
 
 		p.animalsCollection.addLast(bird1);
 		p.animalsCollection.addLast(bird2);
@@ -93,21 +89,14 @@ public class Main {
 		p.animalsCollection.addLast(reptile3);
 		p.animalsCollection.addLast(reptile4);
 
-		p.workersCollection.addLast(worker1);
-		p.workersCollection.addLast(worker2);
-		p.workersCollection.addLast(worker3);
-		p.workersCollection.addLast(worker4);
-		p.workersCollection.addLast(worker5);
-		p.workersCollection.addLast(worker6);
-		p.workersCollection.addLast(worker7);
-		p.workersCollection.addLast(worker8);
-		p.workersCollection.addLast(worker9);
-		p.workersCollection.addLast(worker10);
-		p.workersCollection.addLast(worker11);
-		p.workersCollection.addLast(worker12);
-		p.workersCollection.addLast(worker13);
-		p.workersCollection.addLast(worker14);
+		p.workersCollection.insert(worker1);
+		p.workersCollection.insert(worker2);
+		p.workersCollection.insert(worker3);
+		p.workersCollection.insert(worker8);
+		p.workersCollection.insert(worker9);
+		p.workersCollection.insert(worker10);
 
+		
 		boolean isExit = false;
 		boolean isLoggedIn = true;
 
@@ -116,7 +105,7 @@ public class Main {
 			String username;
 			String password;
 			// user enter login details
-			System.out.println("Welcome to MyZoo App:");
+			System.out.println(ANSI_BOLD+ANSI_RED+"Welcome to MyZoo App:"+ANSI_RESET);
 			System.out.println("User name: ");
 			username = scanner.nextLine();
 			System.out.print("Password: ");
@@ -196,7 +185,7 @@ public class Main {
 				break;
 			case 5:
 				System.out.println("Employeers collection list: ");
-				System.out.println(p.getWorkersCollection());
+				System.out.println(p.workersCollection.inOrder());
 				break;
 			case 6:
 				System.out.println("Total profit for this day: ");
@@ -239,7 +228,7 @@ public class Main {
 				temp.raiseDailySalary(p.WorkerIdExists(worker3), raise);
 				break;
 			case 13:
-				System.out.println(p.toString());
+				System.out.println(p);
 				break;
 			case 14:
 				System.out.println("\nYou've logged out!");

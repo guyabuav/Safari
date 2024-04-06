@@ -17,7 +17,7 @@ public class ZooKeeper extends Employee {
 		}
 	}
 
-	public ZooKeeper(String firstName, String lastName, String id, int age, String user, String password, String seniority) {
+	public ZooKeeper(String firstName, String lastName, String id, int age, String user, String password, int seniority) {
 		super(firstName, lastName, id, age, user, password, seniority);
 		this.animalsToCare = new LinkedList<Animal>();
 	}
@@ -129,20 +129,6 @@ public class ZooKeeper extends Employee {
 			System.out.println("This animal not exists in park animal list");
 		}
 	}
-
-	//	public void addAnimalByID(int animalID, Park park) { //WORKING!!!
-	//		if (this.animalsToCare.contains(park.animalIdExists(animalID))) {
-	//			System.out.println("This animal already in your responsibillity");
-	//		}
-	//		else if (!this.animalsToCare.contains(park.animalIdExists(animalID)) && ) {
-	//			this.animalsToCare.addLast(park.animalIdExists(animalID));
-	//			System.out.println("Animal added succesfully!");
-	//		}
-	//		else  {
-	//			this.animalsToCare.addLast(park.animalIdExists(animalID));
-	//			System.out.println("This animal not exists in park animal list");
-	//		}
-	//	}
 
 	public String toString() { //// WORKING!
 		StringBuilder sb = new StringBuilder("ZooKeeper\n");
