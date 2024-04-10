@@ -70,35 +70,35 @@ public class BSN extends BinaryNode{
 	}
 
 	public BSN removeByID(BSN root, String ToRemove) {
-	    if (root == null) {
-	        return null;
-	    }
+		if (root == null) {
+			return null;
+		}
 
-	    // Traverse left subtree if valueToRemove is smaller than current node's integer data
-	    if (root.comp.compare(root.data, (Employee)this.findDataByID(root, ToRemove)) < 0) {
-	        root.left = removeByID((BSN) root.left, ToRemove);
-	    }
-	    // Traverse right subtree if valueToRemove is greater than current node's integer data
-	    else if (root.comp.compare(root.data, (Employee)this.findDataByID(root, ToRemove)) > 0) {
-	        root.right = removeByID((BSN) root.right, ToRemove);
-	    }
-	    // Found the node to remove
-	    else {
-	        // Node with only one child or no child
-	        if (root.left == null) {
-	            return (BSN) root.right;
-	        } else if (root.right == null) {
-	            return (BSN) root.left;
-	        }
+		// Traverse left subtree if valueToRemove is smaller than current node's integer data
+		if (root.comp.compare(root.data, (Employee)this.findDataByID(root, ToRemove)) < 0) {
+			root.left = removeByID((BSN) root.left, ToRemove);
+		}
+		// Traverse right subtree if valueToRemove is greater than current node's integer data
+		else if (root.comp.compare(root.data, (Employee)this.findDataByID(root, ToRemove)) > 0) {
+			root.right = removeByID((BSN) root.right, ToRemove);
+		}
+		// Found the node to remove
+		else {
+			// Node with only one child or no child
+			if (root.left == null) {
+				return (BSN) root.right;
+			} else if (root.right == null) {
+				return (BSN) root.left;
+			}
 
-	        // Node with two children: Get the inorder successor (smallest in the right subtree)
-	        root.data = findMin();
+			// Node with two children: Get the inorder successor (smallest in the right subtree)
+			root.data = findMin();
 
-	        // Delete the inorder successor
-	        root.right = removeByID((BSN) root.right, this.extractId((Employee)root.data));
-	    }
+			// Delete the inorder successor
+			root.right = removeByID((BSN) root.right, this.extractId((Employee)root.data));
+		}
 
-	    return root;
+		return root;
 	}
 
 }

@@ -70,13 +70,10 @@ public abstract class Employee extends Human {
 	}
 
 	public String toString() {
-		StringBuilder sb = new StringBuilder(super.toString()); // Include Human fields
-		sb.append("User: ").append(user).append("\n");
-		sb.append("Password: ").append(password).append("\n");
-		sb.append("Seniority: ").append(seniority).append("\n");
-		sb.append("Salary: ").append(salary).append("\n");
-		sb.append("Today's Working Hours: ").append(todayWorkingHours).append("\n");
-		return sb.toString();
+		return super.toString()+("Username: ")+user+"\n"+
+				"Seniority: "+seniority+"\n"+
+				"Salary: "+salary+"\n"+
+				"Today's Working Hours: "+todayWorkingHours+"\n";
 	}
 
 }

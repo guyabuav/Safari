@@ -8,14 +8,14 @@ public class Human {
 	protected int age;
 
 	public Human(String first_name, String last_name, String id, int age) throws Exception {
-        if (id == null){
-            throw new Exception("You must enter ID of human!");
-        }
-        this.firstName = first_name;
-        this.lastName = last_name;
-        this.id = id;
-        this.age = age;
-    }
+		if (id == null){
+			throw new Exception("You must enter ID of human!");
+		}
+		this.firstName = first_name;
+		this.lastName = last_name;
+		this.id = id;
+		this.age = age;
+	}
 
 	public Human(Human other) {
 		this.firstName = other.firstName;
@@ -58,10 +58,9 @@ public class Human {
 
 
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("First Name: ").append(firstName).append("\n");
-		sb.append("Last Name: ").append(lastName).append("\n");
-		sb.append("ID: ").append(id).append("\n");
-		sb.append("Age: ").append(age).append("\n");
-		return sb.toString();	}
+		return "First Name: "+firstName+"\n"+
+				"Last Name: "+lastName+"\n"+
+				"ID: "+id+"\n"+
+				"Age: "+age+"\n";
+	}
 }

@@ -1,6 +1,5 @@
 package ThePark;
 
-
 public class FoodTruck {
 	Product hotdog;
 	Product hamburger;

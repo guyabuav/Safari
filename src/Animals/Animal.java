@@ -125,14 +125,14 @@ public abstract class Animal {
 	}
 
 	public String toString() {
-		return "ID: " + this.id + "\n" +
-				"Name: " + this.name + "\n" +
-				"Type: " + this.type + "\n" +
-				"Age: " + this.age + "\n" +
-				"Happiness: " + this.happiness + "\n" +
-				"Hunger: " + this.hunger + "\n" +
-				"Health: " + this.health + "\n" +
-				"Moving: " + (this.isMoving ? "Yes" : "No") + "\n";
+		return "\nID: " + this.id+
+				"\nName: " + this.name+
+				"\nType: " + this.type+
+				"\nAge: " + this.age+
+				"\nHappiness: " + this.happiness+
+				"\nHunger: " + this.hunger+
+				"\nHealth: " + this.health+
+				"\nMoving: " + (this.isMoving ? "Yes" : "No") + "\n";
 	}
 
 }

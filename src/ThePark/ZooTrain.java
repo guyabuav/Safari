@@ -7,22 +7,22 @@ public class ZooTrain {
 	private int ride_num;
 	private static int passengers_max = 15;
 	private boolean trip_done;
-	
+
 
 	// Constructors
-    public ZooTrain(String route_type, int passengers) throws Exception   {
-        if (route_type == null) {
-            throw new Exception("You must enter route type!\n!!");
+	public ZooTrain(String route_type, int passengers) throws Exception   {
+		if (route_type == null) {
+			throw new Exception("You must enter route type!\n!!");
 
-        }
-        this.route_type = route_type;
-        if (passengers > passengers_max)
-            this.passengers = passengers;
-        else this.passengers = passengers;
-        this.ride_num = (int)Math.random();
-        this.trip_done = false;
-    }
-	
+		}
+		this.route_type = route_type;
+		if (passengers > passengers_max)
+			this.passengers = passengers;
+		else this.passengers = passengers;
+		this.ride_num = (int)Math.random();
+		this.trip_done = false;
+	}
+
 	public ZooTrain(ZooTrain tocpy) {
 		this.route_type = tocpy.route_type;
 		this.passengers = tocpy.passengers;
@@ -34,15 +34,15 @@ public class ZooTrain {
 	public String getRouteType() {
 		return this.route_type;
 	}
-	
+
 	public void setRouteType(String route) {
 		route_type = route; 
 	}
-	
+
 	public int getPassengers() {
 		return this.passengers;
 	}
-	
+
 	public void setPassengers(int passengers) {
 		this.passengers = passengers;
 		if (passengers > 15) {
@@ -50,25 +50,25 @@ public class ZooTrain {
 			this.passengers = 15;
 		}
 	}
-	
+
 	public int getRideNum() {
 		return this.ride_num;
 	}
-	
+
 	public void setRideNum(int ridenum) {
 		ride_num = ridenum;
 	}
-	
+
 	public boolean getTripDone() {
 		return trip_done;
 	}
-	
+
 	public void setTripDone(boolean state) {
 		trip_done = state;
 	}
-			
-	
-	
+
+
+
 	//Print method
 	public String toString() {
 		return "Route type = "+route_type+"\nNumber of passengers = "+passengers+"\nRide number = "

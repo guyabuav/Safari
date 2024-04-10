@@ -2,8 +2,6 @@ package Animals;
 
 public class Reptile extends Animal implements Animal_Actions {
 
-
-
 	public Reptile(String name, String type, int age, int happiness, int hunger, int health) {
 		super(name, type, age, happiness, hunger, health);
 	}

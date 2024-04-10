@@ -1,7 +1,6 @@
 package Humans;
 
-import Animals.Animal;
-import ThePark.Park;
+import ThePark.*;
 
 public class Ceo extends Veterinarian {
 	private boolean have_background;
@@ -30,17 +29,12 @@ public class Ceo extends Veterinarian {
 		parkImManage.workersInPark.add(this);
 	}
 
-
-
-
-
-
 	public int calcDailyProfit() {
 		return this.parkImManage.getVisitors_today() * this.parkImManage.getTicketPrice();
 	}
 
 
-	// Add animal from the collection to the park & deleting animal from the collection
+	// Add animal from the collection to the park & delete animal from the collection
 	public void addAnimaltoPark(int animal_Id) {
 		if(this.parkImManage.animalIdExists(animal_Id) != null) {
 			System.out.println("This animal already exists in the park");
@@ -67,27 +61,24 @@ public class Ceo extends Veterinarian {
 	} 
 
 
-	// Add worker from the collection to the park & deleting animal from the collection
+	// Add worker from the collection to the park
 	public void addWorkertoPark(String worker_Id) {
 		if(this.parkImManage.WorkerIdExists(worker_Id) != null) {
-			System.out.println("This worker already exists in the park");
+			System.out.println("\nThis worker already exists in the park");
 		}
 		else if((this.parkImManage.workerIdExistsInCollection(worker_Id))== false) {
-			System.out.println("This worker is not exists in collection");
+			System.out.println("\nThis worker is not exists in collection");
 		}
 		else {
 			this.parkImManage.workersInPark.addLast(((Employee) this.parkImManage.workerFinder(worker_Id)));
-			System.out.println("Worker added succesfully from collection to our safari!");
-			//this.parkImManage.workersCollection.remove(this.parkImManage.workerIdExistsInCollection(worker_Id));
-		}
+			System.out.println("\nWorker added succesfully from collection to our safari!");		}
 	} 
 
 	public void DeleteWorkerIDFromPark(String worker_Id) {
 		if(this.parkImManage.WorkerIdExists(worker_Id) == null) {
-			System.out.println("This animal not exists in the park");
+			System.out.println("This worker not exists in the park");
 		}
 		else {
-			this.parkImManage.workersCollection.insert(worker_Id);
 			this.parkImManage.workersInPark.remove(this.parkImManage.WorkerIdExists(worker_Id));
 			System.out.println("Worker removed succesfully from our safari!");
 		}
@@ -99,12 +90,12 @@ public class Ceo extends Veterinarian {
 		}
 		else {
 			this.parkImManage.workersInPark.addFirst(worker);
-			System.out.println("Animal added succesfully");
+			System.out.println("Worker added succesfully");
 		}
 	}
 
 	public void deleteWorkerFromPark(Employee worker) {
-		if (parkImManage.getWorkersInPark().remove(worker)) {
+		if (parkImManage.getWorkersList().remove(worker)) {
 			System.out.println("Worker removed from the park successfully");
 		} else {
 			System.out.println("Worker not found in the park");
@@ -127,19 +118,9 @@ public class Ceo extends Veterinarian {
 	}
 
 	public String toString() {
-
-		StringBuilder sb = new StringBuilder("CEO\n");
-		sb.append("First Name: ").append(firstName).append("\n");
-		sb.append("Last Name: ").append(lastName).append("\n");
-		sb.append("ID: ").append(id).append("\n");
-		sb.append("Age: ").append(age).append("\n");
-		sb.append("User: ").append(this.getUser()).append("\n");
-		sb.append("Password: ").append(this.getPassword()).append("\n");
-		sb.append("Seniority: ").append(seniority).append("\n");
-		sb.append("Salary: ").append(salary).append("\n");
-		sb.append("Today's Working Hours: ").append(todayWorkingHours).append("\n");
-		sb.append("Expertise: ").append(expertise).append("\n\n");
-		return sb.toString();
+		String toPrint = "\nCeo and also a"+super.toString()+
+				"Have background: "+have_background+"\n";
+		return toPrint;
 	}
 }
 

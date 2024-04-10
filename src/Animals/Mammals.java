@@ -2,7 +2,6 @@ package Animals;
 
 public class Mammals extends Animal implements Animal_Actions {
 
-
 	public Mammals(String name, String type, int age, int happiness, int hunger, int health) {
 		super(name, type, age, happiness, hunger, health);
 	}

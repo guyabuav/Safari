@@ -1,6 +1,5 @@
 package ThePark;
 
-
 public class SouvenirStore {
 	Product key_chain;
 	Product zoo_photo;
