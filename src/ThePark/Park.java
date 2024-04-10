@@ -21,20 +21,23 @@ public class Park {
 	protected int visitors_today;
 	protected Product Ticket;
 
-	//Constructors	
-	public Park(Ceo boss, ZooTrain train, SouvenirStore sov_store, FoodTruck food_truck, int visitors_today, Product ticketPrice) {
-		this.boss = boss;
-		this.animalsInPark = new LinkedList<Animal>();
-		this.workersInPark = new LinkedList<Employee>();
-		this.animalsCollection = new LinkedList<Animal>();
-		EmployeeComparator comp = new EmployeeComparator();
-		this.workersCollection = new BST(comp);
-		this.rides = new LinkedList<ZooTrain>();
-		this.sov_store = sov_store;
-		this.food_truck = food_truck;
-		this.visitors_today = visitors_today;
-		this.Ticket = ticketPrice;
-	}
+	//Constructors
+    public Park(Ceo boss, ZooTrain train, SouvenirStore sov_store, FoodTruck food_truck, int visitors_today, Product ticketPrice) throws Exception {
+        if (boss == null) {
+        throw new Exception("Park must have a CEO!\n");
+        }
+        this.boss = boss;
+        this.animalsInPark = new LinkedList<Animal>();
+        this.workersInPark = new LinkedList<Employee>();
+        this.animalsCollection = new LinkedList<Animal>();
+        EmployeeComparator comp = new EmployeeComparator();
+        this.workersCollection = new BST(comp);
+        this.rides = new LinkedList<ZooTrain>();
+        this.sov_store = sov_store;
+        this.food_truck = food_truck;
+        this.visitors_today = visitors_today;
+        this.Ticket = ticketPrice;
+    }
 
 	//Class method
 	public boolean animalExists(Animal an) {

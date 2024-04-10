@@ -9,7 +9,7 @@ public abstract class Employee extends Human {
 	protected int todayWorkingHours;
 
 	public Employee(String firstName, String lastName, String id, int age, String user, String password,
-			int seniority) {
+			int seniority) throws Exception {
 		super(firstName, lastName, id, age);
 		this.user = user;
 		this.password = password;
@@ -19,7 +19,7 @@ public abstract class Employee extends Human {
 	}
 
 	// Copy constructor
-	public Employee(Employee other) {
+	public Employee(Employee other) throws Exception {
 		super(other.getFirstName(), other.getLastName(), other.getId(), other.getAge());
 		this.user = other.getUser();
 		this.password = other.getPassword();

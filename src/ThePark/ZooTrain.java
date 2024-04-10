@@ -10,14 +10,18 @@ public class ZooTrain {
 	
 
 	// Constructors
-	public ZooTrain(String route_type, int passengers) {
-		this.route_type = route_type;
-		if (passengers > passengers_max)
-			this.passengers = passengers;
-		else this.passengers = passengers;
-		this.ride_num = (int)Math.random();
-		this.trip_done = false;
-	}
+    public ZooTrain(String route_type, int passengers) throws Exception   {
+        if (route_type == null) {
+            throw new Exception("You must enter route type!\n!!");
+
+        }
+        this.route_type = route_type;
+        if (passengers > passengers_max)
+            this.passengers = passengers;
+        else this.passengers = passengers;
+        this.ride_num = (int)Math.random();
+        this.trip_done = false;
+    }
 	
 	public ZooTrain(ZooTrain tocpy) {
 		this.route_type = tocpy.route_type;

@@ -7,7 +7,7 @@ public class Ceo extends Veterinarian {
 	private boolean have_background;
 	private Park parkImManage;
 
-	public Ceo(String firstName, String lastName, String id, int age, String user, String password, int seniority, String expertise,  boolean background) {
+	public Ceo(String firstName, String lastName, String id, int age, String user, String password, int seniority, String expertise,  boolean background) throws Exception {
 		super(firstName, lastName, id, age, user, password, seniority, expertise);
 		this.have_background = background;
 		this.parkImManage = null;

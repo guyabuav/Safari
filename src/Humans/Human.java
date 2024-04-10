@@ -7,12 +7,15 @@ public class Human {
 	protected String id;
 	protected int age;
 
-	public Human(String first_name, String last_name, String id, int age) {
-		this.firstName = first_name;
-		this.lastName = last_name;
-		this.id = id;
-		this.age = age;
-	}
+	public Human(String first_name, String last_name, String id, int age) throws Exception {
+        if (id == null){
+            throw new Exception("You must enter ID of human!");
+        }
+        this.firstName = first_name;
+        this.lastName = last_name;
+        this.id = id;
+        this.age = age;
+    }
 
 	public Human(Human other) {
 		this.firstName = other.firstName;

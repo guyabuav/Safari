@@ -19,47 +19,83 @@ import Humans.Employee;
 
 // visitors - useing stores, trains...
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args)   {
+
+		Animal bird1 = null;
+		Animal bird2 = null;
+		Animal bird3 = null;
+		Animal bird4 = null;
+		Animal mamma1 = null;
+		Animal mamma2 = null;
+		Animal mamma3 = null;
+		Animal mamma4 = null;
+		Animal reptile1 = null;
+		Animal reptile2 = null;
+		Animal reptile3 = null;
+		Animal reptile4 = null;
+		ZooKeeper worker1 = null;
+		ZooKeeper worker2 = null;
+		ZooKeeper worker3 = null;
+		Veterinarian worker8 = null;
+		Veterinarian worker9 = null;
+		Veterinarian worker10 = null;
+		Ceo worker23 = null;
+
 		final String ANSI_RESET = "\u001B[0m";
 		final String ANSI_BOLD = "\u001B[1m";
 		final String ANSI_RED = "\u001B[31m";
 
-		// Bird
-		Animal bird1 = new Bird("Blue", "parrot", 5);
-		Animal bird2 = new Bird("Charlie", "eagle", 2);
-		Animal bird3 = new Bird("Rio", "parrot", 3);
-		Animal bird4 = new Bird("Sunny", "parrot", 4);
+		try {
+			// Bird
+			bird1 = new Bird("Blue", "parrot", 5);
+			bird2 = new Bird("Charlie", "eagle", 2);
+			bird3 = new Bird("Rio", "parrot", 3);
+			bird4 = new Bird("Sunny", "parrot", 4);
 
-		// Mammal
-		Animal mamma1 = new Mammals("Buddy", "dog", 7);
-		Animal mamma2 = new Mammals("Mittens", "cat", 4);
-		Animal mamma3 = new Mammals("Simba", "lion", 6);
-		Animal mamma4 = new Mammals("Max", "dog", 3);
+			// Mammal
+			mamma1 = new Mammals("Buddy", "dog", 7);
+			mamma2 = new Mammals("Mittens", "cat", 4);
+			mamma3 = new Mammals("Simba", "lion", 6);
+			mamma4 = new Mammals("Max", "dog", 3);
 
-		// Reptile
-		Animal reptile1 = new Reptile("Spike", "snake", 3);
-		Animal reptile2 = new Reptile("Terry", "turtle", 10);
-		Animal reptile3 = new Reptile("Lizzy", "lizard", 2);
-		Animal reptile4 = new Reptile("Rex", "crocodile", 12);
+			// Reptile
+			reptile1 = new Reptile("Spike", "snake", 3);
+			reptile2 = new Reptile("Terry", "turtle", 10);
+			reptile3 = new Reptile("Lizzy", "lizard", 2);
+			reptile4 = new Reptile("Rex", "crocodile", 12);
 
-		// ZooKeeper
-		ZooKeeper worker1 = new ZooKeeper("yuval", "levy", "1234567" , 30, "yuvalp", "12345", 10);
-		ZooKeeper worker2 = new ZooKeeper("matan", "semo", "1234568" , 16, "matanos", "12345", 1);
-		ZooKeeper worker3 = new ZooKeeper("rami", "navon", "1234569" , 48, "ramilan", "12345", 6);
+		} catch (Exception e) {
+			System.out.println("There is error in creating an animal\n");
+		}
 
-		
-		// Veterinarian
-		Veterinarian worker8 = new Veterinarian("sharon", "gidon", "1234582", 55, "sharoni", "12345", 4, "Medicine");
-		Veterinarian worker9 = new Veterinarian("alon", "broidex", "1234583", 21, "alonbalon", "12345", 12, "Medicine");
-		Veterinarian worker10 = new Veterinarian("meydad", "mor", "1234584", 51, "hidad", "12345", 16, "Medicine");
+		try {
+			// ZooKeeper
+			worker1 = new ZooKeeper("yuval", "levy", "1234567" , 30, "yuvalp", "12345", 10);
+			worker2 = new ZooKeeper("matan", "semo", "1234568" , 16, "matanos", "12345", 1);
+			worker3 = new ZooKeeper("rami", "navon", "1234569" , 48, "ramilan", "12345", 6);
 
 
-		// CEO
-		Ceo worker23 = new Ceo("yossi", "dvir", "1234589", 44, "yossison", "123456", 11, "ALL", true);
 
+			// Veterinarian
+			worker8 = new Veterinarian("sharon", "gidon", "1234582", 55, "sharoni", "12345", 4, "Medicine");
+			worker9 = new Veterinarian("alon", "broidex", "1234583", 21, "alonbalon", "12345", 12, "Medicine");
+			worker10 = new Veterinarian("meydad", "mor", "1234584", 51, "hidad", "12345", 16, "Medicine");
+
+
+			// CEO
+			worker23 = new Ceo("yossi", "dvir", "1234589", 44, "yossison", "123456", 11, "ALL", true);
+
+		} catch (Exception e1) {
+			System.out.println("There is error in creating a human\n");
+		}
+
+		ZooTrain train = null;
 		// Park
-
-		ZooTrain train = new ZooTrain("Long", 20);
+		try {
+			train = new ZooTrain("Long", 20);
+		}catch(Exception e2) {
+			System.out.println("There was an error in creating zoo train\n");
+		}
 		Product key_chain = new Product(5, 100);
 		Product zoo_photo = new Product(10,100);
 		Product snack = new Product(5,200);
@@ -72,9 +108,16 @@ public class Main {
 		Product orange_juice = new Product(4,200);
 		FoodTruck foodTruck = new FoodTruck(hotdog, hamburger, chips, cola, orange_juice, water_bottle);
 		Product Ticket = new Product(75,1000);
-		Park p = new Park(worker23, train, svStore, foodTruck, 0, Ticket);
+		Park p = null;
+		try {
+		p = new Park(worker23, train, svStore, foodTruck, 0, Ticket);
+		}catch(Exception e3) {
+			System.out.println("There was error in creating the park\n");
+		}
 		worker23.SetparkImManage(p);
 		p.addRide(train);
+
+
 
 		p.animalsCollection.addLast(bird1);
 		p.animalsCollection.addLast(bird2);
@@ -96,7 +139,8 @@ public class Main {
 		p.workersCollection.insert(worker9);
 		p.workersCollection.insert(worker10);
 
-		
+
+
 		boolean isExit = false;
 		boolean isLoggedIn = true;
 
@@ -110,6 +154,7 @@ public class Main {
 			username = scanner.nextLine();
 			System.out.print("Password: ");
 			password = scanner.nextLine();
+
 
 			// User name and password check
 			Employee tempo = authenticateUser(username, password, p);
@@ -129,6 +174,9 @@ public class Main {
 			}
 		}
 		isLoggedIn = false;
+
+
+
 	}
 
 	// Function to authenticate user based on username and password
