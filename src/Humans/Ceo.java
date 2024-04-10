@@ -44,7 +44,7 @@ public class Ceo extends Veterinarian {
 		}
 		else{
 			this.parkImManage.animalsInPark.addFirst(this.parkImManage.animalIdExistsInCollection(animal_Id));
-			System.out.println("Animal added succesfully from collection to our safari!");
+			System.out.println("Animal added succesfully from collection to your Zoo!");
 			this.parkImManage.animalsCollection.remove(this.parkImManage.animalIdExistsInCollection(animal_Id));
 		}
 	} 
@@ -56,7 +56,7 @@ public class Ceo extends Veterinarian {
 		else {
 			this.parkImManage.animalsCollection.addLast(this.parkImManage.animalIdExists(animal_Id));
 			this.parkImManage.animalsInPark.remove(this.parkImManage.animalIdExistsInCollection(animal_Id));
-			System.out.println("Animal removed succesfully from our safari!");
+			System.out.println("Animal removed succesfully from your Zoo!");
 		}
 	} 
 
@@ -71,7 +71,7 @@ public class Ceo extends Veterinarian {
 		}
 		else {
 			this.parkImManage.workersInPark.addLast(((Employee) this.parkImManage.workerFinder(worker_Id)));
-			System.out.println("\nWorker added succesfully from collection to our safari!");		}
+			System.out.println("\nWorker added succesfully from collection to your Zoo!");		}
 	} 
 
 	public void DeleteWorkerIDFromPark(String worker_Id) {
@@ -80,7 +80,7 @@ public class Ceo extends Veterinarian {
 		}
 		else {
 			this.parkImManage.workersInPark.remove(this.parkImManage.WorkerIdExists(worker_Id));
-			System.out.println("Worker removed succesfully from our safari!");
+			System.out.println("Worker removed succesfully from your Zoo!");
 		}
 	} 
 
